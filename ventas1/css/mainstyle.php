@@ -1,3 +1,6 @@
+<?php
+  header("Content-Type: text/css; charset: UTF-8");
+?>
 * {
   margin: 0;
   padding: 0;
@@ -183,17 +186,28 @@ html, body {
   font-size: 18px;
 }
 .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .cantidad_producto {
-  width: 100%;
-  border: 1px solid #fff;
   display: block;
-  margin: auto;
-  padding: 15px;
+  margin: auto; 
 }
-.main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .cantidad_producto p {
+/* .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .cantidad_producto p {
   color: #fff;
   font-size: 18px;
   text-align: center;
-}
+} */
+.main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .cantidad_producto input {
+  display: block;
+  margin: auto;
+  width: 100%;
+  max-width: 300px;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+  color: #fff;
+  background-color: #fff0;
+  border: 1px solid #fff;
+  padding: 15px;
+} 
+
 .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .precio_producto {
   width: 100%;
   display: block;

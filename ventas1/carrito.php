@@ -8,7 +8,7 @@
 	<title>Compra del Carrito</title>
 	
 	<!-- Estilos css -->
-	<link rel="stylesheet" href="css/mainstyle.css">
+	<link rel="stylesheet" href="css/mainstyle.php">
 	<link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -57,7 +57,7 @@ $listaArticulos=$crud->mostrar();
 								<!-- <p>calletas, pan</p> -->
 							</div>
 							<div class="cantidad_producto">
-								<p><input type="number" name="cantidad"></p>
+								<input type="number" name="cantidad" value="1">
 							</div>
 							<div class="precio_producto">
 								<p><?php echo $articulo->getPrecio() ?></p>
