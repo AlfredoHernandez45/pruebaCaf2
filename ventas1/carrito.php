@@ -1,12 +1,4 @@
-<?php
-//incluye la clase crud y articulo
-require_once('crud.php');
-require_once('articulo.php');
-$crud=new crudArticulo();
-$articulo= new Articulos();
-//obtiene todos los articulos con el método mostrar de la clase crud
-$listaArticulos=$crud->mostrar();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +13,15 @@ $listaArticulos=$crud->mostrar();
 
 </head>
 <body class="main_carrito">
+<?php
+//incluye la clase crud y articulo
+require_once('crud.php');
+require_once('articulo.php');
+$crud=new crudArticulo();
+$articulo= new Articulos();
+//obtiene todos los articulos con el método mostrar de la clase crud
+$listaArticulos=$crud->mostrar();
+?>
 	<header>
         <a href="#" class="logo">
             <img src="img/logo.png" alt="">
@@ -62,22 +63,6 @@ $listaArticulos=$crud->mostrar();
 								<p><?php echo $articulo->getPrecio() ?></p>
 							</div>
 						</div>
-
-						<!-- <div class="producto">
-							<div class="image_producto">
-								<img src="./img/oreo.png" alt="cafe moka" loading="lazy">
-							</div>
-							<div class="descripcion_producto">
-								<h3>Cafe</h3>
-								<p>calletas, pan</p>
-							</div>
-							<div class="cantidad_producto">
-								<p>1</p>
-							</div>
-							<div class="precio_producto">
-								<p>$20.00</p>
-							</div>
-						</div> -->
 					</div>
 					<?php }?>
 				</div>
