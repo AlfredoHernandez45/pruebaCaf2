@@ -65,18 +65,19 @@ header{
 }
 
 .header-icon {
-    font-size: 22px;
+    font-size: 30px;
     cursor: pointer;
     z-index: 10000;
     display: flex;
     column-gap: 0.8rem;
 }
-.header-icon .bx{
+/* .header-icon .bx{
     color: var(--bg-color);
-}
+} */
 
 .header-icon .bx{
     color: var(--main-color);
+    font-size: 30px;
 }
 #menu-icon{
     color: var(--bg-color);

@@ -47,8 +47,8 @@ $listaArticulos=$crud->mostrar();
         </ul>
 
         <div class="header-icon">
-            <i class='bx bx-cart-alt'></i>
-            <i class='bx bx-search' id="search-icon"></i>
+            <a href="carrito.php"><i class='bx bx-cart-alt'></i></a>
+            <!-- <i class='bx bx-search' id="search-icon"></i> -->
         </div>
     </header>
       
@@ -78,11 +78,11 @@ $listaArticulos=$crud->mostrar();
 			<div class="products-container">
                 
                 <div class="box">
-                    <img src="img/frape.png" alt="">
+                    <img src="img/frape.png" alt="cafe">
                     <h3><?php echo $articulo->getNombre() ?></h3><!--Muestra el nombre del producto -->
                     <div class="content">
                         <span> $<?php echo $articulo->getPrecio() ?> Varos </span><!--Muestra el precio del producto -->
-
+                        
                         <!--SE AGREGARIA CODIGO PARA AGREGAR AL CARRITO-->
                         <a href="#">Agregar al carrito</a>
 
@@ -90,10 +90,10 @@ $listaArticulos=$crud->mostrar();
                 </div>
             </div>
             <?php }?>
-                <br>
+            <br>
                 <!-- Tabla para ingresar mas productos -->
-                </center>
-            </section>
+            </center>
+        </section>
             <a name="direccion"></a> <!-- Vinculos del menu a direccionar Productos -->
             <div class="footer">
                 <p><h3> Contacto: 9831234567 <br> Dirección:  Av. Andres Quintana Roo entre Insurgentes y Juan José Siorda! https://goo.gl/maps/ik7cVLSPsWrWVMNT9</h3></p>
