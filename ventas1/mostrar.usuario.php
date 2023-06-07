@@ -44,7 +44,7 @@ $listaArticulos = $crud->mostrar();
 		</ul>
 
 		<div class="header-icon">
-			<a href="carrito.php"><i class='bx bx-cart-alt'></i></a>
+			<a href="carrito-principal.php"><i class='bx bx-cart-alt'></i></a>
 		</div>
 	</header>
 	<!-- FINAL - Aquí se encuentra la estructura del encabezado -->
