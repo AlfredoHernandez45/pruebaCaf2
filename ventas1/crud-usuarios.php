@@ -1,7 +1,7 @@
 <?php
 require_once('conexion.php');
 
-class CrudUsuario {
+class crudUsuario {
     public function __construct() {}
 
     public function insertar($usuario) {

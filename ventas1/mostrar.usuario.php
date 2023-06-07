@@ -2,8 +2,12 @@
 // Incluye la clase CRUD y Articulo
 require_once('crud.php');
 require_once('articulo.php');
+require_once('usuario.php');
+require_once('crud-usuarios.php');
 $crud = new crudArticulo();
 $articulo = new Articulos();
+$crudUsuario = new crudUsuario();
+$usuario = new Usuario();
 // Obtiene todos los articulos usando el método mostrar de la clase CRUD
 $listaArticulos = $crud->mostrar();
 ?>
@@ -24,10 +28,6 @@ $listaArticulos = $crud->mostrar();
 </head>
 
 <body>
-	<!-- <a name="inicio"></a>		Vinculos del menu a direccionar Productos
-	<a name="index.html"></a>	Vinculos del menu a direccionar sesion
-	<a name="sesion.php"></a>
-	<a name="registro.php"></a> -->
 
 	<!-- INICIO - Aquí se encuentra la estructura del encabezado -->
 	<header>
@@ -89,6 +89,9 @@ $listaArticulos = $crud->mostrar();
 
 							<!-- Se agrega el formulario para agregar al carrito -->
 							<form action="agregar_al_carrito.php" method="post">
+								<!-- Se agrega un campo oculto con el correo del usuario -->
+								<input type="hidden" name="correo" value="<?php echo $usuario->getCorreo(); ?>">
+
 								<!-- Se agrega un campo oculto con el nombre del artículo -->
 								<input type="hidden" name="nombre" value="<?php echo $articulo->getNombre(); ?>">
 
