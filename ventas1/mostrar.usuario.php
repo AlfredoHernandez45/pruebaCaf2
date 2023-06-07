@@ -93,7 +93,7 @@ $listaArticulos = $crud->mostrar();
                                 <input type="hidden" name="cveArticulo" value="<?php echo $articulo->getCveArticulo(); ?>">
 
 								<!-- Se agrega un campo para ingresar la cantidad deseada -->
-                                <P>Cantidad:  <input type="number" name="cantidad" value="1"></P>
+                                <P>Cantidad: <input type="number" name="cantidad" value="1"></P>
 
 								<!-- Se agrega un botón para enviar el formulario -->
                                 <button type="submit" name="agregarCarrito">Agregar al carrito</button>
@@ -119,10 +119,9 @@ $listaArticulos = $crud->mostrar();
 	<!-- FINAL - Aquí se encuentra el pie de página -->
 
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger chat-title="Cafeteria_IA" agent-id="39350e75-1a68-444d-bc1d-66843bd6dca3"
-        language-code="es"></df-messenger>
+    <df-messenger chat-title="Cafeteria_IA" agent-id="39350e75-1a68-444d-bc1d-66843bd6dca3" language-code="es"></df-messenger>
 
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             $('form').submit(function (e) {
                 e.preventDefault();
@@ -143,7 +142,7 @@ $listaArticulos = $crud->mostrar();
                 });
             });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
