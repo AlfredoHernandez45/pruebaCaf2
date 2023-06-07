@@ -66,24 +66,21 @@ $listaArticulos = $crud->mostrar();
 			<!-- FOR que imprime todos los productos -->
 			<?php foreach ($listaArticulos as $articulo) {?>
 			<div class="products-container">
-
 				<div class="box">
 					<img src="img/frape.png" alt="cafe">
 					<h3>
 						<?php echo $articulo->getNombre(); ?>
-					</h3><!-- Muestra el nombre del producto -->
+					</h3>
 					<div class="content">
-						<span> $
+						<span>$
 							<?php echo $articulo->getPrecio(); ?> Varos
-						</span><!-- Muestra el precio del producto -->
-
-						<!-- SE AGREGARÍA CÓDIGO PARA AGREGAR AL CARRITO -->
-						<a href="#">Agregar al carrito</a>
-
+						</span>
+						<a href="#" class="agregar-carrito" data-articulo-id="<?php echo $articulo->getCveArticulo(); ?>">Agregar al carrito</a>
 					</div>
 				</div>
 			</div>
 			<?php }?>
+
 			<br>
 			<!-- Tabla para ingresar más productos -->
 		</section>
@@ -101,4 +98,26 @@ $listaArticulos = $crud->mostrar();
 		language-code="es"></df-messenger>
 </body>
 
+<script>
+	$(document).ready(function () {
+		$('.agregar-carrito').click(function (e) {
+			e.preventDefault();
+
+			var articuloID = $(this).data('articulo-id');
+
+			$.ajax({
+				url: 'agregar_al_carrito.php', // Ruta a tu script PHP que maneja la inserción en la base de datos
+				method: 'POST',
+				data: { articuloID: articuloID },
+				success: function (response) {
+					alert('Artículo agregado al carrito con éxito');
+					// Realiza cualquier otra acción que desees después de agregar al carrito
+				},
+				error: function () {
+					alert('Error al agregar el artículo al carrito');
+				}
+			});
+		});
+	});
+</script>
 </html>
