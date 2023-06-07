@@ -1,4 +1,6 @@
-
+<?php
+  header("Content-Type: text/css; charset: UTF-8");
+?>
 *{
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
@@ -136,11 +138,39 @@ header{
 }
 
 .products-container .box .content span{
-    padding: 0 1 rem;
+    padding: 10px 20px;
     color: var(--bg-color);
     background:var(--main-color) ;
     border-radius: 4px;
     font-weight: 500;
+}
+
+.products-container .box .content form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 80px;
+}
+
+.products-container .box .content form p {
+    color: #fff;
+    display: flex;
+    gap: 15px;
+}
+
+.products-container .box .content form p input {
+    color: #000;
+    font-size: 16px;
+    width: 45px;
+    text-align: center;
+}
+
+.products-container .box .content form button { 
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
 }
 
 .products-container .box .content a{
