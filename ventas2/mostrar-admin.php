@@ -1,15 +1,15 @@
  <!-- ///////////////////////////////////////////// -->
  <!-- ///////////////////////////////////////////// -->
- <?php
- //incluye la clase crud y articulo
- require_once('crud.php');
- require_once('articulo.php');
- $crud=new crudArticulo();
- $articulo= new Articulos();
- //obtiene todos los articulos con el método mostrar de la clase crud
- $listaArticulos=$crud->mostrar();
- ?>
- 
+<?php
+//incluye la clase crud y articulo
+require_once('crud.php');
+require_once('articulo.php');
+$crud=new crudArticulo();
+$articulo= new Articulos();
+//obtiene todos los articulos con el método mostrar de la clase crud
+$listaArticulos=$crud->mostrar();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
