@@ -1,4 +1,16 @@
- <!DOCTYPE html>
+ <!-- ///////////////////////////////////////////// -->
+ <!-- ///////////////////////////////////////////// -->
+ <?php
+ //incluye la clase crud y articulo
+ require_once('crud.php');
+ require_once('articulo.php');
+ $crud=new crudArticulo();
+ $articulo= new Articulos();
+ //obtiene todos los articulos con el método mostrar de la clase crud
+ $listaArticulos=$crud->mostrar();
+ ?>
+ 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,17 +26,7 @@
 <a name="registro.php"></a>
 </html>
 
- <!-- ///////////////////////////////////////////// -->
- <!-- ///////////////////////////////////////////// -->
-<?php
-//incluye la clase crud y articulo
-require_once('crud.php');
-require_once('articulo.php');
-$crud=new crudArticulo();
-$articulo= new Articulos();
-//obtiene todos los articulos con el método mostrar de la clase crud
-$listaArticulos=$crud->mostrar();
-?>
+
 
 <html>
 <head>
@@ -47,8 +49,7 @@ $listaArticulos=$crud->mostrar();
         </ul>
 
         <div class="header-icon">
-            <i class='bx bx-cart-alt'></i>
-            <i class='bx bx-search' id="search-icon"></i>
+            <a href="carrito-principal.php"><img src="img/carrito.png" alt="carrito" loading="lazy"></a>
         </div>
     </header>
       
