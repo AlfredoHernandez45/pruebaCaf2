@@ -4,9 +4,9 @@
  require_once('crud.php');
  require_once('articulo.php');
  $crud=new crudArticulo();
- $articulo= new Articulos();
+ $articulo = new Articulos();
  //obtiene todos los articulos con el método mostrar de la clase crud
- $listaArticulos=$crud->mostrar();
+ $listaArticulos = $crud->mostrar();
  ?>
  <!-- Termina Conexion con la base de datos -->
 
@@ -17,6 +17,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafeteria</title>
+
+    <!-- Stilos -->
     <link rel="stylesheet" href="css/style.php">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
@@ -42,6 +44,7 @@
     </div>
 </header>
   
+<!-- Inicia Hero -->
 <section class="home" id="home">
     <div class="home-text">
         <h1>¿Listo para despertar?</h1>
@@ -52,15 +55,20 @@
         <img src="img/main.png" alt="">
     </div>
 </section>
+<!-- Termina Hero -->
 
+<!-- Inicia tabla de cafes -->
 <center>
+    <!-- Inicia Ingresar productos -->
     <table border="1" cellpadding="0" cellspacing="5" width="30%" bgcolor="FFFFFF">
         <tr>
             <td><a href="ingresar.php">Ingresar Más Productos</a></td>
             <td><a href="mostrar.php">Refrescar Productos</a></td>
         </tr>
     </table>
+    <!-- Termina Ingresar productos -->
 
+    <!-- Inicia Tabla de Productos -->
     <section class="products" id="products">
         <div class="heading">        
             <h2>Productos</h2>
@@ -110,18 +118,19 @@
             </tr>
         </table>
     </section>
+    <!-- Termina Tabla de Productos -->
 
-    <a name="direccion"></a>
-    <div class="footer">
-        <p><h3>Contacto: 9831234567 <br> Dirección: Av. Andres Quintana Roo entre Insurgentes y Juan José Siorda! https://goo.gl/maps/ik7cVLSPsWrWVMNT9</h3></p>
-    </div>
+    <!-- Inicia footer -->
+    <footer>
+        <!--<a name="direccion"></a>-->
+        <div class="footer">
+            <p><h3>Contacto: 9831234567 <br> Dirección: Av. Andres Quintana Roo entre Insurgentes y Juan José Siorda! https://goo.gl/maps/ik7cVLSPsWrWVMNT9</h3></p>
+        </div>
+    </footer>
+    <!-- Termina footer -->
 
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger
-        chat-title="Cafeteria_IA"
-        agent-id="39350e75-1a68-444d-bc1d-66843bd6dca3"
-        language-code="es"
-    ></df-messenger>
+    <!--<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger chat-title="Cafeteria_IA" agent-id="39350e75-1a68-444d-bc1d-66843bd6dca3" language-code="es"></df-messenger>-->
 </center>
 
 </body>
