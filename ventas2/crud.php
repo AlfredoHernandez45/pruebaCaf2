@@ -1,72 +1,73 @@
 <?php
-// incluye la clase Db
 require_once('conexion.php');
+require_once('articulo.php');
 
-	class crudArticulo{
-		// constructor de la clase
-		public function __construct(){}
-		// Crear
-		public function insertar($articulo){
-			$db=Db::conectar();
-			$insert=$db->prepare('INSERT INTO Articulos values(:cveArticulo,:nombre,:precio)');
-			$insert->bindValue('cveArticulo',$articulo->getCveArticulo());
-			$insert->bindValue('nombre',$articulo->getNombre());
-			$insert->bindValue('precio',$articulo->getPrecio());
-			$insert->execute();
-		}
+class crudArticulo {
+	// constructor de la clase
+    public function __construct() {}
+	// Funcion Crear
+    public function insertar($articulo) {
+        $db = Db::conectar();
+        $insert = $db->prepare('INSERT INTO Articulos (cveArticulo, nombre, precio) VALUES (:cveArticulo, :nombre, :precio)');
+        $insert->bindValue('cveArticulo', $articulo->getCveArticulo());
+        $insert->bindValue('nombre', $articulo->getNombre());
+        $insert->bindValue('precio', $articulo->getPrecio());
+        $insert->execute();
+    }
 
-		// Leer
-		public function mostrar(){
-			$db=Db::conectar();
-			$listaArticulos=[];
-			$select=$db->query('SELECT * FROM Articulos');
+	// Funcion Leer
+    public function mostrar() {
+        $db = Db::conectar();
+        $listaArticulos = [];
+        $select = $db->query('SELECT * FROM Articulos');
 
-			foreach($select->fetchAll() as $articulo){
-				$myArticulo= new Articulos();
-				$myArticulo->setCveArticulo($articulo['cveArticulo']);
-				$myArticulo->setNombre($articulo['nombre']);
-				$myArticulo->setPrecio($articulo['precio']);
-				$listaArticulos[]=$myArticulo;
-			}
-			return $listaArticulos;
-		}
+        foreach ($select->fetchAll() as $articulo) {
+            $myArticulo = new Articulo();
+            $myArticulo->setCveArticulo($articulo['cveArticulo']);
+            $myArticulo->setNombre($articulo['nombre']);
+            $myArticulo->setPrecio($articulo['precio']);
+            $listaArticulos[] = $myArticulo;
+        }
 
-		// eliminar datos
-		public function eliminar($cveArticulo){
-			$db=Db::conectar();
-			$eliminar=$db->prepare('DELETE FROM Articulos WHERE cveArticulo=:cveArticulo');
-			$eliminar->bindValue('cveArticulo',$cveArticulo);
-			$eliminar->execute();
+        return $listaArticulos;
+    }
 
-			//Delate de las funciones
-			$eliminar=$db->prepare('DELETE FROM Existencias WHERE cveArticulo=:cveArticulo');
-			$eliminar->bindValue('cveArticulo',$cveArticulo);
-			$eliminar->execute();
-		}
+	// Funcion Eliminar datos
+    public function eliminar($cveArticulo) {
+        $db = Db::conectar();
+        $eliminar = $db->prepare('DELETE FROM Articulos WHERE cveArticulo = :cveArticulo');
+        $eliminar->bindValue('cveArticulo', $cveArticulo);
+        $eliminar->execute();
 
-		// Search Busqueda espesifica
-		public function obtenerArticulo($cveArticulo){
-			$db=Db::conectar();
-			$select=$db->prepare('SELECT * FROM Articulos WHERE cveArticulo=:cveArticulo');
-			$select->bindValue('cveArticulo',$cveArticulo);
-			$select->execute();
+        $eliminarExistencias = $db->prepare('DELETE FROM Existencias WHERE cveArticulo = :cveArticulo');
+        $eliminarExistencias->bindValue('cveArticulo', $cveArticulo);
+        $eliminarExistencias->execute();
+    }
 
-			$articulo=$select->fetch();
-			$myArticulo= new Articulos();
-			$myArticulo->setCveArticulo($articulo['cveArticulo']);
-			$myArticulo->setNombre($articulo['nombre']);
-			$myArticulo->setPrecio($articulo['precio']);
-			return $myArticulo;
-		}
+	// Funcion Busqueda Espesifica
+    public function obtenerArticulo($cveArticulo) {
+        $db = Db::conectar();
+        $select = $db->prepare('SELECT * FROM Articulos WHERE cveArticulo = :cveArticulo');
+        $select->bindValue('cveArticulo', $cveArticulo);
+        $select->execute();
 
-		// A c t u a l i z a r
-		public function actualizar($articulo){
-			$db=Db::conectar();
-			$actualizar=$db->prepare('UPDATE Articulos SET nombre=:nombre, precio=:precio  WHERE cveArticulo=:cveArticulo');
-			$actualizar->bindValue('cveArticulo',$articulo->getCveArticulo());
-			$actualizar->bindValue('nombre',$articulo->getNombre());
-			$actualizar->bindValue('precio',$articulo->getPrecio());
-			$actualizar->execute();
-		}
-	}
+        $articulo = $select->fetch();
+        $myArticulo = new Articulo();
+        $myArticulo->setCveArticulo($articulo['cveArticulo']);
+        $myArticulo->setNombre($articulo['nombre']);
+        $myArticulo->setPrecio($articulo['precio']);
+
+        return $myArticulo;
+    }
+
+	// Funcion Actualizar
+    public function actualizar($articulo) {
+        $db = Db::conectar();
+        $actualizar = $db->prepare('UPDATE Articulos SET nombre = :nombre, precio = :precio WHERE cveArticulo = :cveArticulo');
+        $actualizar->bindValue('cveArticulo', $articulo->getCveArticulo());
+        $actualizar->bindValue('nombre', $articulo->getNombre());
+        $actualizar->bindValue('precio', $articulo->getPrecio());
+        $actualizar->execute();
+    }
+}
 ?>
