@@ -15,9 +15,9 @@ if ($conn->connect_error) {
 
 // Procesar el formulario de registro
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['usuario'];
-    $password = $_POST['contrasena'];
-  
+  $email = $_POST['usuario'];
+  $password = $_POST['contrasena'];
+
   // Consulta para verificar si el usuario ya existe
   $sql = "SELECT * FROM usuarios WHERE correo = '$email'";
   $result = $conn->query($sql);

@@ -25,14 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($result->num_rows > 0) {
     // Usuario autenticado correctamente
     //echo '¡Inicio de sesión exitoso!';
-    echo "<script> alert('Bienvenido de de nuevo'); window.location='mostrar.php' </script>";
-
+    echo "<script> alert('¡Bienvenido de nuevo!'); window.location='mostrar.php' </script>";
   } else {
     // Credenciales inválidas
     //echo 'Nombre de usuario o contraseña incorrectos.';
-    echo "<script> alert('Nombre de usuario o contraseña incorrectos... Intente de nuevo :)'); window.location='sesion.php' </script>";
+    echo "<script> alert('Nombre de usuario o contraseña incorrectos. Intente de nuevo :)'); window.location='sesion.php' </script>";
   }
 }
+
 // Cerrar la conexión
 $conn->close();
 ?>
