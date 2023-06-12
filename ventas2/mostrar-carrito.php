@@ -38,8 +38,7 @@ $listaArticulos=$crud->mostrar();
         </ul>
 
         <div class="header-icon">
-            <!-- <i class="bx bx-cart-alt"></i> -->
-            <i class='bx bx-search' id="search-icon"></i>
+
         </div>
     </header>
 
@@ -56,13 +55,16 @@ $listaArticulos=$crud->mostrar();
 								<img src="./img/mokaa.png" alt="cafe moka" loading="lazy">
 							</div>
 							<div class="descripcion_producto">
+								<!-- Nombre del cafe -->
 								<h3><?php echo $carrito->getCveArticulo() ?></h3> <!--Muestra el nombre del producto -->
 								<!-- <p>calletas, pan</p> -->
 							</div>
 							<div class="cantidad_producto">
+								<!-- Cantidad de cafes -->
 								<input type="number" name="cantidad" value="<?php echo $carrito->getCantidadProducto() ?>">
 							</div>
 							<div class="precio_producto">
+								<!-- Precio unitario del cafe -->
 								<p><?php echo $carrito->getPrecio() ?></p>
 							</div>
 						</div>
