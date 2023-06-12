@@ -1,12 +1,14 @@
 <!-- Inicia Conexion con la base de datos -->
 <?php
-//incluye la clase crud y articulo
+// Incluye la clase crud-carrito.php y el archivo crud.php
 require_once('crud-carrito.php');
 require_once('carrito.php');
-$crud=new CrudCarrito();
-$carrito= new Carrito();
-//obtiene todos los articulos con el método mostrar de la clase crud
-$listaArticulos=$crud->mostrar();
+require_once('crud.php');
+
+$crudCarrito = new CrudCarrito();
+$crudArticulo = new crudArticulo();
+
+$listaArticulos = $crudCarrito->mostrar();
 ?>
 <!-- Termina Conexion con la base de datos -->
 
@@ -55,16 +57,18 @@ $listaArticulos=$crud->mostrar();
 								<img src="./img/mokaa.png" alt="cafe moka" loading="lazy">
 							</div>
 							<div class="descripcion_producto">
-								<!-- Nombre del cafe -->
-								<h3><?php echo $carrito->getCveArticulo() ?></h3> <!--Muestra el nombre del producto -->
+								<?php
+								// Obtener el nombre del artículo utilizando la función obtenerArticulo
+								$articulo = $crudArticulo->obtenerArticulo($carrito->getCveArticulo());
+								$nombreArticulo = $articulo->getNombre();
+								?>
+								<h3><?php echo $nombreArticulo; ?></h3> <!-- Muestra el nombre del producto -->
 								<!-- <p>calletas, pan</p> -->
 							</div>
 							<div class="cantidad_producto">
-								<!-- Cantidad de cafes -->
 								<input type="number" name="cantidad" value="<?php echo $carrito->getCantidadProducto() ?>">
 							</div>
 							<div class="precio_producto">
-								<!-- Precio unitario del cafe -->
 								<p><?php echo $carrito->getPrecio() ?></p>
 							</div>
 						</div>
