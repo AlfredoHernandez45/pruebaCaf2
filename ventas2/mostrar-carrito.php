@@ -1,3 +1,14 @@
+<!-- Inicia Conexion con la base de datos -->
+<?php
+//incluye la clase crud y articulo
+require_once('crud-carrito.php');
+require_once('carrito.php');
+$crud=new CrudCarrito();
+$carrito= new Carrito();
+//obtiene todos los articulos con el método mostrar de la clase crud
+$listaArticulos=$crud->mostrar();
+?>
+<!-- Termina Conexion con la base de datos -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,19 +20,11 @@
 	
 	<!-- Estilos css -->
 	<link rel="stylesheet" href="css/mainstyle.php">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.php">
 
 </head>
 <body class="main_carrito">
-<?php
-//incluye la clase crud y articulo
-require_once('crud-carrito.php');
-require_once('carrito.php');
-$crud=new CrudCarrito();
-$carrito= new Carrito();
-//obtiene todos los articulos con el método mostrar de la clase crud
-$listaArticulos=$crud->mostrar();
-?>
+
 	<header>
         <a href="#" class="logo">
             <img src="img/logo.png" alt="">
@@ -45,7 +48,7 @@ $listaArticulos=$crud->mostrar();
 			<div class="body_carrito">
 				<div class="catalago_productos">
 					<h2>Mi Carrito</h2>
-					<?php foreach ($listaArticulos as $articulo) {?>
+					<?php foreach ($listaArticulos as $carrito) {?>
 					<div class="item_productos">
 						
 						<div class="producto">
@@ -53,14 +56,14 @@ $listaArticulos=$crud->mostrar();
 								<img src="./img/mokaa.png" alt="cafe moka" loading="lazy">
 							</div>
 							<div class="descripcion_producto">
-								<h3><?php echo $articulo->getNombre() ?></h3> <!--Muestra el nombre del producto -->
+								<h3><?php echo $carrito->getCveArticulo() ?></h3> <!--Muestra el nombre del producto -->
 								<!-- <p>calletas, pan</p> -->
 							</div>
 							<div class="cantidad_producto">
-								<input type="number" name="cantidad" value="1">
+								<input type="number" name="cantidad" value="<?php echo $carrito->getCantidadProducto() ?>">
 							</div>
 							<div class="precio_producto">
-								<p><?php echo $articulo->getPrecio() ?></p>
+								<p><?php echo $carrito->getPrecio() ?></p>
 							</div>
 						</div>
 					</div>

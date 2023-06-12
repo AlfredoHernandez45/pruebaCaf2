@@ -187,7 +187,9 @@ html, body {
 }
 .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .cantidad_producto {
   display: block;
-  margin: auto; 
+  margin: auto;
+  width: 100%;
+  max-width: 70px;
 }
 /* .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .cantidad_producto p {
   color: #fff;
