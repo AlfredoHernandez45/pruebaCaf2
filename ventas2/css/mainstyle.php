@@ -164,7 +164,7 @@ html, body {
 .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .image_producto {
   width: 100%;
   display: block;
-  margin: auto;
+  margin: auto 20px auto;
 }
 .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .image_producto img {
   width: 100%;
@@ -191,12 +191,16 @@ html, body {
   width: 100%;
   max-width: 70px;
 }
-/* .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .cantidad_producto p {
-  color: #fff;
+.main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .cantidad_producto p {
+  margin: auto;
   font-size: 18px;
+  font-weight: 700;
   text-align: center;
-} */
-.main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .cantidad_producto input {
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 15px;
+}
+/* .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .cantidad_producto input {
   display: block;
   margin: auto;
   width: 100%;
@@ -208,7 +212,7 @@ html, body {
   background-color: #fff0;
   border: 1px solid #fff;
   padding: 15px;
-} 
+}  */
 
 .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .precio_producto {
   width: 100%;
@@ -217,7 +221,8 @@ html, body {
 }
 .main_carrito .carrito .body_carrito .catalago_productos .item_productos .producto .precio_producto p {
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 400;
   text-align: center;
 }
 .main_carrito .carrito .body_carrito .catalago_precios {
@@ -266,10 +271,17 @@ html, body {
   padding: 20px 50px;
   display: block;
   margin: auto;
-  background-color: #996633;
+  background-color: #b37639;
+  border: 1px solid #fff;
+  border-radius: 50px;
+}
+.main_carrito .carrito .body_carrito .catalago_precios .fin_compra button:hover {
+  background-color: #7e460d;
 }
 .main_carrito .carrito .body_carrito .catalago_precios .fin_compra button a {
   color: #fff;
+  font-size: 18px;
 }
-
-/*# sourceMappingURL=mainstyle.css.map */
+.main_carrito .carrito .body_carrito .catalago_precios .fin_compra button a:hover {
+  color: #b37639;
+}

@@ -9,6 +9,7 @@ $crudCarrito = new CrudCarrito();
 $crudArticulo = new crudArticulo();
 
 $listaArticulos = $crudCarrito->mostrar();
+$subtotal = 0;
 ?>
 <!-- Termina Conexion con la base de datos -->
 
@@ -28,25 +29,26 @@ $listaArticulos = $crudCarrito->mostrar();
 <body class="main_carrito">
 
 	<header>
-        <a href="#" class="logo">
-            <img src="img/logo.png" alt="">
-        </a>
-        <i class='bx bx-menu' id="menu-icon"></i>
-        <ul class="navbar">
-            <li><a href="mostrar.usuario.php">Inicio</a></li>   
-            <li><a href="mostrar.usuario.php#products">Productos</a></li>
-            <li><a href="mostrar.usuario.php#direccion">Dirección y Contacto</a></li>
-            <li><a href="sesion.php">Iniciar Sesión</a></li>
-        </ul>
+		<a href="#" class="logo">
+			<img src="img/logo.png" alt="">
+		</a>
+		<i class='bx bx-menu' id="menu-icon"></i>
+		<ul class="navbar">
+			<li><a href="mostrar.usuario.php">Inicio</a></li>   
+			<li><a href="mostrar.usuario.php#products">Productos</a></li>
+			<li><a href="mostrar.usuario.php#direccion">Dirección y Contacto</a></li>
+			<li><a href="sesion.php">Iniciar Sesión</a></li>
+		</ul>
 
-        <div class="header-icon">
+		<div class="header-icon">
 
-        </div>
-    </header>
+		</div>
+	</header>
 
 	<div class="carrito">
 		<div class="content">
 			<div class="body_carrito">
+				<!-- Inicia formulario -->
 				<div class="catalago_productos">
 					<h2>Mi Carrito</h2>
 					<?php foreach ($listaArticulos as $carrito) {?>
@@ -57,19 +59,24 @@ $listaArticulos = $crudCarrito->mostrar();
 								<img src="./img/mokaa.png" alt="cafe moka" loading="lazy">
 							</div>
 							<div class="descripcion_producto">
+								<!-- Obtener el nombre del artículo utilizando la función obtenerArticulo -->
 								<?php
-								// Obtener el nombre del artículo utilizando la función obtenerArticulo
-								$articulo = $crudArticulo->obtenerArticulo($carrito->getCveArticulo());
-								$nombreArticulo = $articulo->getNombre();
+									$articulo = $crudArticulo->obtenerArticulo($carrito->getCveArticulo());
+									$nombreArticulo = $articulo->getNombre();
 								?>
-								<h3><?php echo $nombreArticulo; ?></h3> <!-- Muestra el nombre del producto -->
-								<!-- <p>calletas, pan</p> -->
+								<!-- Muestra el nombre del producto -->
+								<h3><?php echo $nombreArticulo; ?></h3> 
 							</div>
 							<div class="cantidad_producto">
-								<input type="number" name="cantidad" value="<?php echo $carrito->getCantidadProducto() ?>">
+								<p><?php echo $carrito->getCantidadProducto() ?></p>
 							</div>
 							<div class="precio_producto">
-								<p><?php echo $carrito->getPrecio() ?></p>
+								<!-- Calcular el precio del articulo por la cantidad -->
+								<?php
+									$total = $carrito->getCantidadProducto() * $carrito->getPrecio();
+									$subtotal += $total;
+								?>
+								<p>$ <?php echo $total ?></p>
 							</div>
 						</div>
 					</div>
@@ -79,7 +86,7 @@ $listaArticulos = $crudCarrito->mostrar();
 					<h2>Resumen Pedido</h2>
 					<div class="sub_total">
 						<label>Subtotal:</label>
-						<p>$20.00</p>
+						<p><?php echo $subtotal ?></p>
 						<label>IVA:</label>
 						<p>0.16%</p>
 						<label>Envio:</label>
@@ -87,12 +94,30 @@ $listaArticulos = $crudCarrito->mostrar();
 					</div>
 					<div class="total_precio">
 						<label>Total:</label>
-						<p>$20.00</p>
+						<!-- Calculand el total con IVA -->
+						<?php 
+							$totalFinal = $subtotal + ($subtotal * 0.16);
+						?>
+						<!-- Muestra el resultado -->
+						<p>	<?php echo $totalFinal; ?> </p>
 					</div>
 					<div class="fin_compra">
-						<button><a href="">Finalizar la compra</a></button>
+						<form action="agregar_venta.php" method="post">
+							<!-- Se agrega un campo oculto con el identificador del artículo -->
+							
+							<!-- <input type="hidden" name="cveArticulo" value="<?php echo $carrito->getCveArticulo() ?>">
+                            <input type="hidden" name="cantidadProducto" value="<?php echo $carrito->getCantidad();?>">
+                            <input type="hidden" name="subtotal" value="<?php echo $carrito->getPrecio();?>">
+                            <input type="hidden" name="total" value="<?php echo $carrito->getSubtotal();?>"> -->
+                            
+							<!-- Se agrega un campo oculto con el correo del usuario -->
+							<input type="hidden" name="correo" value="<?php echo $usuario->getCorreo(); ?>">
+
+							<button><a href="">Finalizar la compra</a></button>
+						</form>
 					</div>
 				</div>
+				<!-- Termina formulario -->
 			</div>
 			
 		</div>

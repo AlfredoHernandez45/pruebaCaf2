@@ -40,7 +40,7 @@
 
     <!-- logo carrito -->
     <div class="header-icon">
-        <a href="carrito-principal.php"><img src="img/carrito.png" alt="carrito" loading="lazy"></a>
+        <a href="mostrar-carrito.php"><img src="img/carrito.png" alt="carrito" loading="lazy"></a>
     </div>
 </header>
   
