@@ -11,8 +11,8 @@ class CrudCarrito {
 		$insert->bindValue('idCompra', $carrito->getIdCompra());
 		$insert->bindValue('cveArticulo', $carrito->getCveArticulo());
 		$insert->bindValue('cantidadProducto', $carrito->getCantidadProducto());
-		$insert->bindValue('precio', $carrito->getPrecio());
-		$insert->bindValue('subtotal', $carrito->geSubtotal());
+		$insert->bindValue('precio', $carrito->getPrecio()); // Obtener el precio del carrito
+		$insert->bindValue('subtotal', $carrito->getSubtotal()); // Obtener el subtotal del carrito
 		$insert->execute();
 	}
 
@@ -26,8 +26,8 @@ class CrudCarrito {
 			$myCarrito->setIdCompra($carrito['id_compra']);
 			$myCarrito->setCveArticulo($carrito['cveArticulo']);
 			$myCarrito->setCantidadProducto($carrito['cantidadProducto']);
-			$myCarrito->getPrecio($carrito['precio']);
-			$myCarrito->geSubtotal($carrito['subtotal']);
+			$myCarrito->setPrecio($carrito['precio']); // Establecer el precio del carrito
+			$myCarrito->setSubtotal($carrito['subtotal']); // Establecer el subtotal del carrito
 			$listaCarrito[] = $myCarrito;
 		}
 
@@ -53,17 +53,21 @@ class CrudCarrito {
 		$myCarrito->setIdCompra($carrito['id_compra']);
 		$myCarrito->setCveArticulo($carrito['cveArticulo']);
 		$myCarrito->setCantidadProducto($carrito['cantidadProducto']);
+		$myCarrito->setPrecio($carrito['precio']); // Establecer el precio del carrito
+		$myCarrito->setSubtotal($carrito['subtotal']); // Establecer el subtotal del carrito
 
 		return $myCarrito;
 	}
 
 	public function actualizar($carrito) {
 		$db = Db::conectar();
-		$actualizar = $db->prepare('UPDATE carrito SET id_compra = :idCompra, cveArticulo = :cveArticulo, cantidadProducto = :cantidadProducto WHERE idCarrito = :idCarrito');
+		$actualizar = $db->prepare('UPDATE carrito SET id_compra = :idCompra, cveArticulo = :cveArticulo, cantidadProducto = :cantidadProducto, precio = :precio, subtotal = :subtotal WHERE idCarrito = :idCarrito');
 		$actualizar->bindValue('idCarrito', $carrito->getIdCarrito());
 		$actualizar->bindValue('idCompra', $carrito->getIdCompra());
 		$actualizar->bindValue('cveArticulo', $carrito->getCveArticulo());
 		$actualizar->bindValue('cantidadProducto', $carrito->getCantidadProducto());
+		$actualizar->bindValue('precio', $carrito->getPrecio()); // Obtener el precio del carrito
+		$actualizar->bindValue('subtotal', $carrito->getSubtotal()); // Obtener el subtotal del carrito
 		$actualizar->execute();
 	}
 }

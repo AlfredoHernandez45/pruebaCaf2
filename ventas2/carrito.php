@@ -37,20 +37,20 @@ class Carrito {
 
     //Funciones precio
     public function getPrecio() {
-        return $this->idCarrito;
+        return $this->precio;
     }
 
-    public function setPrecioo($precio) {
+    public function setPrecio($precio) {
         $this->precio = $precio;
     }
 
     //Funciones subtotal
-    public function geSubtotal() {
-        return $this->idCarrito;
+    public function getSubtotal() {
+        return $this->subtotal;
     }
 
-    public function setSubtotal($Subtotal) {
-        $this->Subtotal = $Subtotal;
+    public function setSubtotal($subtotal) {
+        $this->subtotal = $subtotal;
     }
 }
 ?>
