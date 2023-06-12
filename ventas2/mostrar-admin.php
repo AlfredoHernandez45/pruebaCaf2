@@ -59,14 +59,7 @@
 
 <!-- Inicia tabla de cafes -->
 <center>
-    <!-- Inicia Ingresar productos -->
-    <table border="1" cellpadding="0" cellspacing="5" width="30%" bgcolor="FFFFFF">
-        <tr>
-            <td><a href="ingresar.php">Ingresar Más Productos</a></td>
-            <td><a href="mostrar.php">Refrescar Productos</a></td>
-        </tr>
-    </table>
-    <!-- Termina Ingresar productos -->
+    
 
     <!-- Inicia Tabla de Productos -->
     <section class="products" id="products">
@@ -74,14 +67,28 @@
             <h2>Productos</h2>
         </div>
 
+        <!-- Inicia Ingresar productos -->
+        <table border="1" cellpadding="0" cellspacing="5" width="30%" bgcolor="FFFFFF">
+            <tr>
+                <td><a href="ingresar.php">Ingresar Más Productos</a></td>
+                <td><a href="mostrar.php">Refrescar Productos</a></td>
+            </tr>
+        </table>
+        <!-- Termina Ingresar productos -->
+
+        <!-- Muestra los productos existentes en la BD -->
         <?php foreach ($listaArticulos as $articulo) { ?>
             <div class="products-container">
                 <div class="box">
                     <img src="img/frape.png" alt="">
+                    <!-- Obtener nombre del producto -->
                     <h3><?php echo $articulo->getNombre() ?></h3>
                     <div class="content">
+                        <!-- Obtener precio -->
                         <span>$<?php echo $articulo->getPrecio() ?> Pesos</span>
+                        <!-- Boton para actualizar productos -->
                         <a href="actualizar.php?cveArticulo=<?php echo $articulo->getCveArticulo() ?>&accion=a">Actualizar</a>
+                        <!-- Boton para eliminar productos -->
                         <a href="admin_articulo.php?cveArticulo=<?php echo $articulo->getCveArticulo() ?>&accion=e">Eliminar</a>
                     </div>
                 </div>
@@ -89,7 +96,8 @@
         <?php } ?>
 
         <br>
-        <table border="1">
+
+        <!-- <table border="1">
             <thead>
                 <tr>
                     <th>cveArticulos</th>
@@ -108,15 +116,15 @@
                     </tr>
                 <?php } ?>
             </tbody>
-        </table>
+        </table> -->
 
-        <br>
+        <!-- <br>
         <table border="1" cellspacing="5" width="30%" bgcolor="FFFFFF">
             <tr>
                 <td><a href="ingresar.php">Ingresar Más Productos</a></td>
                 <td><a href="mostrar.php">Refrescar Productos</a></td>
             </tr>
-        </table>
+        </table> -->
     </section>
     <!-- Termina Tabla de Productos -->
 

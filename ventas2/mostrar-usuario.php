@@ -1,3 +1,4 @@
+<!-- Inicia Conexion con la base de datos -->
 <?php
 // Incluye la clase CRUD y Articulo
 require_once('crud.php');
@@ -11,6 +12,7 @@ $usuario = new Usuario();
 // Obtiene todos los articulos usando el método mostrar de la clase CRUD
 $listaArticulos = $crud->mostrar();
 ?>
+<!-- Termina Conexion con la base de datos -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,14 +30,14 @@ $listaArticulos = $crud->mostrar();
 </head>
 
 <body>
-
 	<!-- INICIO - Aquí se encuentra la estructura del encabezado -->
 	<header>
+		<!-- logo de cafeteria -->
 		<a href="#" class="logo">
 			<img src="img/logo.png" alt="">
 		</a>
-		Eliminar
-		<i class='bx bx-menu' id="menu-icon"></i>
+		
+		<!-- Menu -->
 		<ul class="navbar">
 			<li><a href="#home">Inicio</a></li>
 			<li><a href="#products">Productos</a></li> <!-- Vinculos del menu a direccionar -->
@@ -43,6 +45,7 @@ $listaArticulos = $crud->mostrar();
 			<li><a href="sesion.php">Iniciar Sesión</a></li> <!-- iniciar sesion -->
 		</ul>
 
+		<!-- logo carrito -->
 		<div class="header-icon">
 			<a href="carrito-principal.php"><i class='bx bx-cart-alt'></i></a>
 		</div>
@@ -118,40 +121,19 @@ $listaArticulos = $crud->mostrar();
 	<!-- FINAL - Aquí se encuentran los productos -->
 	
  	<!-- INICIO - Aquí se encuentra el pie de página -->
-	<a name="direccion"></a> <!-- Vinculos del menu a direccionar Productos -->
-	<div class="footer">
-		<p>
-			<h3> Contacto: 9831234567 <br> Dirección: Av. Andres Quintana Roo entre Insurgentes y Juan José Siorda!
-				https://goo.gl/maps/ik7cVLSPsWrWVMNT9</h3>
-		</p>
-	</div>
+	<footer>
+		<!--<a name="direccion"></a>  Vinculos del menu a direccionar Productos -->
+		<div class="footer">
+			<p>
+				<h3> Contacto: 9831234567 <br> Dirección: Av. Andres Quintana Roo entre Insurgentes y Juan José Siorda! https://goo.gl/maps/ik7cVLSPsWrWVMNT9</h3>
+			</p>
+		</div>
+	</footer>
 	<!-- FINAL - Aquí se encuentra el pie de página -->
 
 	<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 	<df-messenger chat-title="Cafeteria_IA" agent-id="39350e75-1a68-444d-bc1d-66843bd6dca3" language-code="es"></df-messenger>
 
-	<!-- <script>
-		$(document).ready(function () {
-			$('form').submit(function (e) {
-				e.preventDefault();
-
-				var formData = $(this).serialize();
-
-				$.ajax({
-					url: 'agregar_al_carrito.php', // Ruta a tu script PHP que maneja la inserción en la base de datos
-					method: 'POST',
-					data: formData,
-					success: function (response) {
-						alert('Artículo agregado al carrito con éxito');
-						// Realiza cualquier otra acción que desees después de agregar al carrito
-					},
-					error: function () {
-						alert('Error al agregar el artículo al carrito');
-					}
-				});
-			});
-		});
-	</script> -->
 </body>
 
 </html>
