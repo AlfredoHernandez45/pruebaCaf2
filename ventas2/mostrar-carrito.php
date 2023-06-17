@@ -34,9 +34,9 @@ $subtotal = 0;
 		</a>
 		<i class='bx bx-menu' id="menu-icon"></i>
 		<ul class="navbar">
-			<li><a href="mostrar.usuario.php">Inicio</a></li>   
-			<li><a href="mostrar.usuario.php#products">Productos</a></li>
-			<li><a href="mostrar.usuario.php#direccion">Dirección y Contacto</a></li>
+			<li><a href="mostrar-usuario.php">Inicio</a></li>   
+			<li><a href="mostrar-usuario.php#products">Productos</a></li>
+			<li><a href="mostrar-usuario.php#direccion">Dirección y Contacto</a></li>
 			<li><a href="sesion.php">Iniciar Sesión</a></li>
 		</ul>
 

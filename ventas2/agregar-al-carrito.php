@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $precio = $_POST['precio'];
     $cantidad = $_POST['cantidad'];
 
-    $sql = "INSERT INTO carrito (cveArticulo, cantidadProducto, precio) VALUES ('$cveArticulo', '$cantidad', '$precio')";
+    $sql = "INSERT INTO carrito (cveArticulo, cantidadProducto, totalPago) VALUES ('$cveArticulo', '$cantidad', '$precio')";
     
     header('Location: mostrar.usuario.php');
 } 

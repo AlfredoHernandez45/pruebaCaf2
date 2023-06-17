@@ -59,7 +59,7 @@ require_once('conexion.php');
 			return $myArticulo;
 		}
 
-		// A c t u a l i z a r
+		// Actualizar
 		public function actualizar($articulo){
 			$db=Db::conectar();
 			$actualizar=$db->prepare('UPDATE Articulos SET nombre=:nombre, precio=:precio  WHERE cveArticulo=:cveArticulo');

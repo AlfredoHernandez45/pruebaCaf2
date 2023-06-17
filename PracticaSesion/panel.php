@@ -1,9 +1,13 @@
 <?php
+    // IICIALIZA LA SESION DEL USUARIO QUE YA DEBE ESTAR LOGEADO
     session_start();
     error_reporting(0);// Esto permite que no se muestre ningun error, esto solo usarlo cuando se termine el proyecto
+    // OBTENEMOS EL USUARIO O EL CORREO DEL USUARIO
     $varsesion = $_SESSION['usuario'];
-    echo $varsesion;
+    // echo $varsesion;
     // print_r($_SESSION);
+
+    // AQUI VALIDAMOS SI NO HA INICIADO SESION NO PUEDE CONTINUAR
     if ($varsesion == null || $varsesion == '') {
         echo 'Sesion no iniciada, usted no tiene autorizacion';
         die();

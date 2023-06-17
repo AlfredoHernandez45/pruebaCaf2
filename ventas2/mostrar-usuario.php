@@ -30,6 +30,7 @@ $listaArticulos = $crud->mostrar();
 </head>
 
 <body>
+
 	<!-- INICIO - Aquí se encuentra la estructura del encabezado -->
 	<header>
 		<!-- logo de cafeteria -->
@@ -67,7 +68,7 @@ $listaArticulos = $crud->mostrar();
 
 	<!-- INICIO - Aquí se encuentran los productos -->
 	<center>
-		<!-- <a name="producttos"></a> Vinculos del menu a direccionar Productos -->
+		<!-- Vinculos del menu a direccionar Productos -->
 		<section class="products" id="products">
 
 			 <!-- Aquí se muestra el título de la sección de productos -->
@@ -123,7 +124,7 @@ $listaArticulos = $crud->mostrar();
  	<!-- INICIO - Aquí se encuentra el pie de página -->
 	<footer>
 		<!--<a name="direccion"></a>  Vinculos del menu a direccionar Productos -->
-		<div class="footer">
+		<div class="footer" id="direccion">
 			<p>
 				<h3> Contacto: 9831234567 <br> Dirección: Av. Andres Quintana Roo entre Insurgentes y Juan José Siorda! https://goo.gl/maps/ik7cVLSPsWrWVMNT9</h3>
 			</p>
@@ -133,7 +134,15 @@ $listaArticulos = $crud->mostrar();
 
 	<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 	<df-messenger chat-title="Cafeteria_IA" agent-id="39350e75-1a68-444d-bc1d-66843bd6dca3" language-code="es"></df-messenger>
+	<?php
+		// session_start();
+		session_start();
+		$varsesion = $_SESSION['usuario'];
+		echo $varsesion;
+		// if(isset($_SESSION['user'])){
 
+		// }
+	?>
 </body>
 
 </html>
